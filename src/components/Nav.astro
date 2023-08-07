@@ -1,0 +1,58 @@
+---
+enum Selected {
+  Home,
+  Beaches,
+}
+
+interface Props {
+  selection: Selected;
+  theme?: Theme;
+}
+
+enum Theme {
+  Light,
+  Dark,
+}
+
+const { selection, theme = Theme.Light } = Astro.props;
+---
+
+{
+  theme == Theme.Light ? (
+    <nav class="w-full h-full pt-[36px] flex flex-row justify-between items-center">
+      <img
+        src="council-logo-clear-jpeg.png"
+        alt="Council Logo"
+        class="w-[303px]"
+      />
+      <ul class="flex flex-row justify-between items-center gap-10 text-textdark text-[24px]">
+        <li class={selection == Selected.Home ? "" : "opacity-50"}>
+          <a href="/">Home</a>
+        </li>
+        <li class="opacity-50 cursor-pointer">History</li>
+        <li class="opacity-50 cursor-pointer">About</li>
+        <li class={selection == Selected.Beaches ? "" : "opacity-50"}>
+          <a href="/beach"> Locations &darr;</a>
+        </li>
+      </ul>
+    </nav>
+  ) : (
+    <nav class="w-full h-full pt-[36px] flex flex-row justify-between items-center">
+      <img
+        src="council-logo-clear-jpeg.png"
+        alt="Council Logo"
+        class="w-[303px]"
+      />
+      <ul class="flex flex-row justify-between items-center gap-10 text-textdark text-[24px]">
+        <li class={selection == Selected.Home ? "" : "opacity-50"}>
+          <a href="/">Home</a>
+        </li>
+        <li class="opacity-50 cursor-pointer">History</li>
+        <li class="opacity-50 cursor-pointer">About</li>
+        <li class={selection == Selected.Beaches ? "" : "opacity-50"}>
+          <a href="/beach"> Locations &darr;</a>
+        </li>
+      </ul>
+    </nav>
+  )
+}

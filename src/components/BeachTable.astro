@@ -1,0 +1,79 @@
+<table class="table">
+  <tbody id="tbody">
+    <tr>
+      <th>Beach</th>
+      <th>Patrol Frequency</th>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  .info-table-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  .table::-webkit-scrollbar {
+    display: none;
+  }
+
+  tr {
+    position: relative;
+  }
+
+  th {
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: sans-serif;
+    border-bottom: 0.3rem solid #368f95;
+    background: #46ceb5;
+    color: white;
+    text-align: left;
+  }
+
+  table {
+    border-collapse: collapse !important;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: stretch;
+    position: relative;
+    overflow: auto;
+    border-radius: 10rem;
+  }
+
+  td {
+    text-align: left;
+    border-bottom: 0.25rem solid #e6dfd8;
+    /* border-radius: 1rem; */
+    padding: 8px;
+    color: #368f95;
+  }
+
+  td:nth-child(even) {
+    border-left: 0.3rem solid #368f95;
+  }
+</style>
+
+<script is:inline defer>
+  console.log("js running");
+  const getdata = async () => {
+    const endpoint =
+        "https://gislegacy.scc.qld.gov.au/arcgis/rest/services/Society/Society_SCRC/MapServer/6/query?where=1%3D1&outFields=Description,PatrolFrequency&outSR=4326&f=json",
+      response = await fetch(endpoint),
+      data = await response.json(),
+      Patrols = data;
+
+    const tbody = document.querySelector("#tbody");
+    Patrols.features.forEach((beachObj) => {
+      let Description = beachObj.attributes.Description;
+      let PatrolFrequency = beachObj.attributes.PatrolFrequency;
+      tbody.innerHTML += `<tr><td>${Description}</td><td>${PatrolFrequency}</td></tr>`;
+    });
+  };
+  getdata();
+</script>

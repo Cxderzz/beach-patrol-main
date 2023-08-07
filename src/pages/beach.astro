@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Nav from "../components/Nav.astro";
+import BeachTable from "../components/BeachTable.astro";
+enum Selected {
+  Home,
+  Beaches,
+}
+
+interface Beach {
+  attributes: {
+    OBJECTID: number;
+    Description: string;
+    PatrolledBy: string;
+    PatrolFrequency: string;
+    created_user: string;
+    created_date: number;
+    last_edited_user: string;
+    last_edited_date: number;
+    GlobalID: string;
+  };
+  geometry: {
+    x: number;
+    y: number;
+  };
+}
+
+const url =
+  "https://gislegacy.scc.qld.gov.au/arcgis/rest/services/Society/Society_SCRC/MapServer/6/query?where=1%3D1&outFields=*&outSR=4326&f=json";
+
+const response = await fetch(url);
+const data = await response.json();
+const beachData = data.features;
+---
+
+<Layout title="Beach Patrol">
+  <div class="bg-primary pl-[80px] pr-[100px] flex justify-between flex-col">
+    <Nav selection={Selected.Beaches} />
+    <!-- {randomUser.toString()} -->
+  </div>
+  <div class="pl-64 pr-64 pt-10">
+    <BeachTable />
+  </div>
+
+  <div class="grid grid-cols-7 gap-3 pl-64 pr-64 pt-10">
+    {
+      beachData.map((beach: Beach) => {
+        return (
+          <Card
+            href="/"
+            title={beach.attributes.Description.toString()}
+            body={beach.attributes.PatrolledBy.toString()}
+          />
+        );
+      })
+    }
+  </div>
+</Layout>
+<style>
+  body {
+    background-color: white;
+  }
+</style>

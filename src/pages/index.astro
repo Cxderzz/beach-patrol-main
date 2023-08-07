@@ -1,14 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import Nav from "../components/Nav.astro";
+enum Selected {
+  Home,
+  Beaches,
+}
 ---
 
-<Layout title="Beach Patrol | Sunshine Coast Council">
+<Layout title="Home | Sunshine Coast Council">
   <header
     class="bg-primary min-h-screen pl-[80px] pr-[100px] flex justify-between flex-col"
   >
     <div>
-      <nav
+      <!-- <nav
         class="w-full h-full pt-[36px] flex flex-row justify-between items-center"
       >
         <img
@@ -23,8 +28,11 @@ import Card from "../components/Card.astro";
           <li>History</li>
           <li>Locations &darr;</li>
         </ul>
-      </nav>
-      <section class="pl-[20px] mt-[180px] flex gap-3 flex-col">
+      </nav> -->
+      <Nav selection={Selected.Home} />
+      <section
+        class="pl-[20px] mt-[calc(50vh-147.52px-calc(318px/2))] flex gap-3 flex-col"
+      >
         <h1 class="font-rowdies text-textdark text-[72px] max-w-[20ch]">
           Uncover Queensland's Natural Beauty
         </h1>
