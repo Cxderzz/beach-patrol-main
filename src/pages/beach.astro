@@ -40,30 +40,115 @@ const beachData = data.features;
 ---
 
 <Layout title="Beach Patrol">
-  <div class="bg-primary pl-[80px] pr-[100px] flex justify-between flex-col">
-    <Nav selection={Selected.Beaches} theme={Theme.Dark} />
-    <!-- {randomUser.toString()} -->
+  <div class="min-h-screen">
+    <div class="bg-primary pl-[80px] pr-[100px] flex justify-between flex-col">
+      <Nav selection={Selected.Beaches} theme={Theme.Light} />
+      <!-- {randomUser.toString()} -->
+    </div>
+    <section
+      class="pl-[100px] pr-[100px] flex flex-row h-[60vh] justify-center mt-[calc(50vh-147.52px-calc(598px/2))]"
+    >
+      <div class="flex gap-3 flex-col w-[75%] justify-center">
+        <h1 class="font-rowdies text-text text-[72px] max-w-[20ch]">
+          World class beaches at your fingertips
+        </h1>
+        <p class="font-inter text-text text-[20px]">
+          Explore over 30 beaches found just in the Sunshine Coast region.<br />
+          Why go anywhere else?
+        </p>
+        <div
+          class="flex flex-row justify-start items-center gap-3 text-[18px] text-[#071c0e] font-inter mt-2"
+        >
+          <div
+            class="bg-primary cursor-pointer select-none w-[200px] text-center p-3 rounded text-text"
+          >
+            Request Patrol
+          </div>
+          <div
+            class="bg-secondary cursor-pointer select-none w-[200px] text-center p-3 rounded text-text"
+          >
+            Submit Feedback
+          </div>
+        </div>
+      </div>
+      <div class="w-[75%]">
+        <div class="map">
+          <div class="inner-map">
+            <iframe
+              id="mapiframe"
+              src="https://www.google.com/maps/d/u/0/embed?mid=1gBrNx37CdNHdptgj7QBwWmRHjvgySiU&ehbc=2E312F"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="pl-[100px] pr-[100px] flex flex-row h-[60vh] justify-center mt-[calc(50vh-147.52px-calc(598px/2))] mb-[calc(50vh-147.52px-calc(598px/2))]"
+    >
+      <div class="w-[75%]">
+        <BeachTable />
+      </div>
+      <div class="flex gap-3 flex-col w-[75%] justify-center">
+        <h1 class="font-rowdies text-text text-[72px] max-w-[20ch] text-right">
+          Prefer it in a table?
+        </h1>
+        <p class="font-inter text-text text-[20px] text-right">
+          We've got you covered. See all the patrol times in one place
+        </p>
+      </div>
+    </section>
   </div>
-  <div class="pl-64 pr-64 pt-10">
-    <BeachTable />
-  </div>
+</Layout>
 
+<!-- 
   <div class="grid grid-cols-7 gap-3 pl-64 pr-64 pt-10">
     {
       beachData.map((beach: Beach) => {
         return (
-          <Card
-            href="/"
-            title={beach.attributes.Description.toString()}
-            body={beach.attributes.PatrolledBy.toString()}
-          />
+          <>
+            <Card
+              href="/"
+              title={beach.attributes.Description.toString()}
+              body={beach.attributes.PatrolledBy.toString()}
+            />
+          </>
         );
       })
     }
-  </div>
-</Layout>
+  </div> -->
+
 <style>
   body {
     background-color: white;
+  }
+  .map {
+    height: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .inner-map {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+  }
+
+  .map iframe {
+    width: 100%;
+    height: 120%;
+    max-width: 100%;
+    border: 0 solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: stretch;
   }
 </style>

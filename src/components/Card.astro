@@ -8,11 +8,12 @@ const { href, title, body } = Astro.props;
 ---
 
 <li class="link-card">
-  <a href={href}>
-    <h2>
+  <a href="/beach">
+    <h2 class="text-3xl mb-5">
       {title}
       <span>&rarr;</span>
     </h2>
+    <img class="h-[300px] w-[400px] object-cover mb-5" src={href} alt="" />
     <p>
       {body}
     </p>
@@ -23,7 +24,7 @@ const { href, title, body } = Astro.props;
     list-style: none;
     display: flex;
     padding: 1px;
-    background-color: #23262d;
+    background-color: #46ceb5;
     background-image: none;
     background-size: 400%;
     border-radius: 7px;
@@ -38,7 +39,7 @@ const { href, title, body } = Astro.props;
     padding: calc(1.5rem - 1px);
     border-radius: 8px;
     color: white;
-    background-color: #23262d;
+    background-color: #1f7e6c;
     opacity: 0.8;
   }
   h2 {

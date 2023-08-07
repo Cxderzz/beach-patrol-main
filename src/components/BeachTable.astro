@@ -1,12 +1,13 @@
-<table class="table">
-  <tbody id="tbody">
-    <tr>
-      <th>Beach</th>
-      <th>Patrol Frequency</th>
-    </tr>
-  </tbody>
-</table>
-
+<div class="h-[600px] w-[100%] overflow-scroll table-wrapper">
+  <table class="table">
+    <tbody id="tbody">
+      <tr>
+        <th>Beach</th>
+        <th>Patrol Frequency</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <style>
   * {
     box-sizing: border-box;
@@ -19,10 +20,6 @@
     display: none;
   }
 
-  tr {
-    position: relative;
-  }
-
   th {
     font-size: 1.25rem;
     font-weight: 600;
@@ -31,28 +28,41 @@
     background: #46ceb5;
     color: white;
     text-align: left;
+    padding: 0.5rem;
+  }
+  table::-webkit-scrollbar {
+    display: none;
+  }
+
+  .table-wrapper::-webkit-scrollbar {
+    display: none;
   }
 
   table {
     border-collapse: collapse !important;
-    display: flex;
+    /* display: flex; */
     width: 100%;
-    height: 100%;
-    flex-direction: column;
-    align-content: center;
-    align-items: stretch;
-    position: relative;
-    overflow: auto;
-    /* border-radius: 10rem; */
+    height: 200px !important;
+    /* flex-direction: column; */
+    /* align-content: center; */
+    /* align-items: stretch; */
+    /* position: relative; */
+    overflow: hidden;
     background: #b2d9eb;
+    font-size: 1.25rem;
+    position: relative;
   }
-
+  tbody {
+    overflow: hidden;
+  }
   td {
     text-align: left;
     border-bottom: 0.25rem solid #e6dfd8;
     /* border-radius: 1rem; */
-    padding: 8px;
+    padding: 16px;
     color: #368f95;
+    /* height: 5rem; */
+    font-size: 1.25rem;
   }
 
   td:nth-child(even) {

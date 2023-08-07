@@ -71,19 +71,31 @@ enum Selected {
   </header>
   <main id="main" class="pt-5 pb-5">
     <h2
-      class="font-inter pl-[100px] pb-5 font-bold text-3xl | section-title-line-around"
+      class="font-inter pb-5 font-bold text-3xl | section-title-line-around mt-5 mb-5"
     >
       Over 7,400 kilometers of coastline to explore
     </h2>
+    <div id="pseudoafter"></div>
     <div class="flex flex-col justify-center items-center">
-      <div class="grid grid-rows-1 grid-cols-3 w-[75%] gap-5">
-        <Card href="/" title="test" body="test" />
-        <Card href="/" title="test" body="test" />
-        <Card href="/" title="test" body="test" />
+      <div class="grid grid-rows-1 grid-cols-3 w-[75%] gap-10">
+        <Card
+          href="/gardeners-falls.webp"
+          title="National Parks"
+          body="Discover the breathtaking beauty of National Parks on the Sunshine Coast. Immerse yourself in nature's wonders, from lush rainforests to pristine beaches. Hike through trails, spot diverse wildlife, and create unforgettable family memories. Experience the ultimate outdoor adventure in this picturesque paradise."
+        />
+        <Card
+          href="/sunshine-coast-beach.jpg"
+          title="Beach Patrol"
+          body="Dive into a world of safety and serenity as you visit these carefully guarded coastal gems. Relax on immaculate sands, swim in tranquil waters, and relish worry-free leisure, knowing that vigilant lifeguards ensure your family's fun and well-being."
+        />
+        <Card
+          href="/sealife.jpg"
+          title="Family Destinations"
+          body="Embark on unforgettable journeys with your loved ones as you explore these captivating havens. From Sea Life Maroochydore to scenic parks, create cherished memories and bond over exciting activities, making the Sunshine Coast the perfect backdrop for your family escapades."
+        />
       </div>
     </div>
   </main>
-  <footer>This is a footer!</footer>
 </Layout>
 
 <style>
@@ -139,16 +151,16 @@ enum Selected {
   .section-title-line-around::before {
     content: "";
     display: inline-block;
-    width: 20%;
+    width: 80px;
     height: 1px;
     background-color: #000;
     vertical-align: middle;
-    margin: 0 10px;
+    /* margin: 0 10px; */
   }
-  .section-title.line-around::after {
+  .section-title-line-around::after {
     content: "";
     display: inline-block;
-    width: 20%;
+    width: calc(100% - 775px);
     height: 1px;
     background-color: #000;
     vertical-align: middle;
