@@ -41,15 +41,35 @@ enum Selected {
           in a small slice of paradise
         </p>
         <div
-          class="bg-[#C1D8E4] cursor-pointer select-none w-[200px] text-center p-3 rounded text-text text-opacity-50"
+          class="flex flex-row justify-start items-center gap-3 text-[18px] text-[#071c0e] font-inter mt-2"
         >
-          Learn More
+          <div
+            class="bg-primary cursor-pointer select-none w-[200px] text-center p-3 rounded text-text"
+          >
+            Learn More
+          </div>
+          <div
+            class="bg-secondary cursor-pointer select-none w-[200px] text-center p-3 rounded text-text"
+          >
+            Contact Us
+          </div>
         </div>
       </section>
     </div>
-    <div class="text-center text-textdark text-4xl pb-5">&darr;</div>
+    <div
+      class="text-center text-textdark text-4xl pb-5 flex justify-center items-center"
+    >
+      <div class="stage">
+        <a
+          class="bg-primary rounded-full w-16 h-16 grid place-items-center box bounce-1"
+          href="#main"
+        >
+          &darr;
+        </a>
+      </div>
+    </div>
   </header>
-  <main class="pt-5 pb-5">
+  <main id="main" class="pt-5 pb-5">
     <h2
       class="font-inter pl-[100px] pb-5 font-bold text-3xl | section-title-line-around"
     >
@@ -67,6 +87,35 @@ enum Selected {
 </Layout>
 
 <style>
+  .box {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    margin: 0 auto 0 auto;
+    transform-origin: bottom;
+  }
+  .bounce-1 {
+    animation-name: bounce-1;
+    animation-timing-function: linear;
+  }
+  .bounce-1:hover {
+    -moz-animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+  @keyframes bounce-1 {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-25px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   header {
     background: url(/beach-landscape-cropped.png);
     /* make it so the background image expands over the entire screen for a hero section */

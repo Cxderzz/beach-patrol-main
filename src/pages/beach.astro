@@ -8,6 +8,11 @@ enum Selected {
   Beaches,
 }
 
+enum Theme {
+  Light,
+  Dark,
+}
+
 interface Beach {
   attributes: {
     OBJECTID: number;
@@ -36,7 +41,7 @@ const beachData = data.features;
 
 <Layout title="Beach Patrol">
   <div class="bg-primary pl-[80px] pr-[100px] flex justify-between flex-col">
-    <Nav selection={Selected.Beaches} />
+    <Nav selection={Selected.Beaches} theme={Theme.Dark} />
     <!-- {randomUser.toString()} -->
   </div>
   <div class="pl-64 pr-64 pt-10">
